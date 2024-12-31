@@ -1,0 +1,6 @@
+[[proxy]]
+backend = "http://localhost:3000"
+
+[serve]
+addresses = ["127.0.0.1"]
+port = 3001

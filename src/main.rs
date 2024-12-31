@@ -29,7 +29,7 @@ async fn main() -> std::io::Result<()> {
             .wrap(Logger::default())
             .configure(handlers::config)
     })
-    .bind(("127.0.0.1", 9090))?
+    .bind(("127.0.0.1", 3000))?
     .run()
     .await
 }
