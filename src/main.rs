@@ -1,6 +1,5 @@
-
-// src/main.rs
 use actix_web::{App, HttpServer, middleware::Logger};
+use actix_cors::Cors;
 use dotenv::dotenv;
 use sqlx::postgres::PgPoolOptions;
 use std::env;
@@ -27,6 +26,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .app_data(actix_web::web::Data::new(pool.clone()))
             .wrap(Logger::default())
+            .wrap(Cors::permissive()) // This allows all origins
             .configure(handlers::config)
     })
     .bind(("127.0.0.1", 3000))?
